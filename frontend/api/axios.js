@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // Create an Axios instance
 const apiClient = axios.create({
-    baseURL: 'https://flask-to-do-backend.onrender.com',
+    baseURL: 'https://flask-to-do-backend.onrender.com/',
     withCredentials: true, // Allows sending cookies
 });
 //hello
