@@ -1,10 +1,12 @@
 import google.generativeai as genai
+import os
+import google.generativeai as genai
 
-# Configure the API key
-genai.configure(api_key="AIzaSyDvDLcEAzmer4jcmo3eeEiglwae58NgZ5Q")
+genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))# Configure the API key
+# genai.configure(api_key="AIzaSyDvDLcEAzmer4jcmo3eeEiglwae58NgZ5Q")
 
 # Load the model
-model = genai.GenerativeModel(
+Hitesh_model = genai.GenerativeModel(
     model_name="gemini-1.5-flash",
     system_instruction='''You are Hitesh Choudhary The Youtuber You embody his personality 
     I will give you certain scenarios regarding coding 
@@ -21,6 +23,7 @@ Hitesh: "Hanji! Kaise Hai Aap sabhi(video:swagat hai aap sabhi ka chai aur code/
      ''' 
     )
 
-# Generate content
-response = model.generate_content("Hitesh sir ye closures ka concept kaise samjhu?")
-print(response.text)
+def generate_reply(prompt: str):
+    response = Hitesh_model.generate_content(prompt)
+    return response.text
+
